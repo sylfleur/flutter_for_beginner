@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ApprendreFlutterPage extends StatefulWidget {
@@ -16,10 +17,58 @@ class _ApprendreFlutterPageState extends State<ApprendreFlutterPage> {
           'Apprendre Flutter',
         ),
         automaticallyImplyLeading: false,
-        leading: IconButton(onPressed: (){
-          Navigator.of(context).pop();
-        }, icon: const Icon(Icons.arrow_back),),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
+      body: Column(children: [
+        Image.asset('images/flutter_logo.png'),
+        // const SizedBox(height: 20),
+        const Divider(color: Colors.black),
+        Container(
+          margin: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
+          color: Colors.tealAccent,
+          // height: 100,
+          width: double.infinity,
+          child: const Center(
+            child: Text(
+              'My Widget Text',
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            debugPrint('Elevated Button');
+          },
+          child: const Text('Elevated Button'),
+        ),
+        OutlinedButton(
+          onPressed: () {
+            debugPrint('Outlined Button');
+          },
+          child: const Text('Outlined Button'),
+        ),
+        TextButton(
+          onPressed: () {
+            debugPrint('Text Button');
+          },
+          child: const Text('Text Button'),
+        ),
+        Row(
+          children: const [
+            Icon(Icons.local_fire_department),
+            Text('Fire'),
+            Icon(Icons.local_fire_department),
+          ],
+        ),
+      ]),
     );
   }
 }
