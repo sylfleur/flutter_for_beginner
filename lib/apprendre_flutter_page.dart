@@ -10,6 +10,16 @@ class ApprendreFlutterPage extends StatefulWidget {
 class _ApprendreFlutterPageState extends State<ApprendreFlutterPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Apprendre Flutter',
+        ),
+        automaticallyImplyLeading: false,
+        leading: IconButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, icon: const Icon(Icons.arrow_back),),
+      ),
+    );
   }
 }
