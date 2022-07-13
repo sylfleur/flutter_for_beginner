@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'home_page.dart';
+import 'profile_page.dart';
 
 void main(List<String> args) {
   runApp(const FlutterBeginner());
@@ -29,14 +29,18 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int _currentIndex = 0;
+  int _currentPage = 0;
+  List<Widget> pages = const [
+    HomePage(),
+    ProfilePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter training for Beginner'),
       ),
-      body: const HomePage(),
+      body: pages[_currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('FloatingActionButton pressed');
@@ -46,16 +50,16 @@ class _RootPageState extends State<RootPage> {
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.settings), label: 'settings')
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile')
         ],
         onDestinationSelected: (int index) {
           setState(
             () {
-              _currentIndex = index;
+              _currentPage = index;
             },
           );
         },
-        selectedIndex: _currentIndex,
+        selectedIndex: _currentPage,
       ),
     );
   }
