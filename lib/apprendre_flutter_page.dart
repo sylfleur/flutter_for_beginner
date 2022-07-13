@@ -61,12 +61,20 @@ class _ApprendreFlutterPageState extends State<ApprendreFlutterPage> {
           },
           child: const Text('Text Button'),
         ),
-        Row(
-          children: const [
-            Icon(Icons.local_fire_department),
-            Text('Fire'),
-            Icon(Icons.local_fire_department),
-          ],
+        GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: (){
+            debugPrint('Gesture Detector');          
+          },
+          child: Row(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              Icon(Icons.local_fire_department, color: Colors.amber,),
+              Text('Row Widget'),
+              Icon(Icons.local_fire_department, color: Colors.amber,),
+            ],
+          ),
         ),
       ]),
     );
